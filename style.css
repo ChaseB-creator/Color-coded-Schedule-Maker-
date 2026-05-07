@@ -1,16 +1,33 @@
 .center{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background: #f0f0f0;
     margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/*This is for the date*/
+.date-label {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+.date-display {
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 5px;
 }
 
 
