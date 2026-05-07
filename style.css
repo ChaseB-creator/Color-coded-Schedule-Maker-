@@ -1,3 +1,4 @@
+/*General CSS Declarations*/
 .center{
     display: flex;
     flex-direction: column;
@@ -16,6 +17,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
+/*End of general CSS Delcarations*/
 
 /*This is for the date*/
 .date-label {
@@ -29,6 +31,8 @@ body {
     color: #555;
     margin-top: 5px;
 }
+
+/*This is the end of the date*/
 
 
 /*This is the start of the clock*/
@@ -92,3 +96,31 @@ body {
 .number11 { top: 20%; left: 15%; }
 .number12 { top: 15%; left: 50%; }
 /*This is the end of the clock*/
+
+/*Migration between index & schedules*/
+
+.nav-button {
+    text-decoration: none;
+    background-color: #5a5a5a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+.nav-button:hover {
+    background-color: #000000;
+}
+
+.top-left-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*Migration between index & schedules end*/
