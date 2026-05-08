@@ -10,12 +10,13 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background: #f0f0f0;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding-top: 80px;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 /*End of general CSS Delcarations*/
 
@@ -31,7 +32,6 @@ body {
     color: #555;
     margin-top: 5px;
 }
-
 /*This is the end of the date*/
 
 
@@ -44,60 +44,152 @@ body {
     padding: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     background: white;
+    margin-bottom: 40px;
+    flex-shrink: 0;
+    border: 5px solid #333; /* More defined rim */
 }
 
 .clock-face {
     position: relative;
     width: 100%;
     height: 100%;
-    transform: translateY(-3px);
+}
+
+#clock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .hand {
     width: 50%;
-    background: black;
+    background: #111;
     position: absolute;
     top: 50%;
     transform-origin: 100%;
     transform: rotate(90deg);
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    z-index: 10;
 }
 
-.hour-hand {
-    height: 6px;
-}
-
-.minute-hand {
-    height: 4px;
-}
-
-.second-hand {
-    height: 2px;
-    background: red;
-}
+.hour-hand { height: 6px; width: 35%; left: 15%; }
+.minute-hand { height: 4px; }
+.second-hand { height: 2px; background: #e74c3c; }
 
 .number {
     position: absolute;
-    font-size: 24px;
+    font-size: 22px;
+    font-weight: bold;
     transform: translate(-50%, -50%);
+    z-index: 5;
+    color: #222;
 }
 
-.number1  { top: 20%; left: 85%; }
-.number2  { top: 35%; left: 92%; }
-.number3  { top: 50%; left: 97%; }
-.number4  { top: 65%; left: 92%; }
-.number5  { top: 80%; left: 85%; }
-.number6  { top: 85%; left: 50%; }
-.number7  { top: 80%; left: 15%; }
-.number8  { top: 65%; left: 8%; }
-.number9  { top: 50%; left: 3%; }
-.number10 { top: 35%; left: 8%; }
-.number11 { top: 20%; left: 15%; }
-.number12 { top: 15%; left: 50%; }
+/* Adjusted circular alignment */
+.number1  { top: 15%; left: 75%; }
+.number2  { top: 30%; left: 90%; }
+.number3  { top: 50%; left: 95%; }
+.number4  { top: 70%; left: 90%; }
+.number5  { top: 85%; left: 75%; }
+.number6  { top: 92%; left: 50%; }
+.number7  { top: 85%; left: 25%; }
+.number8  { top: 70%; left: 10%; }
+.number9  { top: 50%; left: 5%; }
+.number10 { top: 30%; left: 10%; }
+.number11 { top: 15%; left: 25%; }
+.number12 { top: 8%; left: 50%; }
 /*This is the end of the clock*/
 
-/*Migration between index & schedules*/
+/*Schedules Grid and Tables*/
+.schedules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 95%;
+    max-width: 1300px;
+    padding-bottom: 100px;
+}
+
+.day-table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border-color: #000000;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+.day-table-container h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    color: #2c3e50;
+}
+
+.sunday-container {
+    grid-column: 2;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    border: 2px solid #000; /* Main table border */
+}
+
+th {
+    background-color: #f8f9fa;
+    border: 1px solid #000;
+    padding: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+td {
+    padding: 0; /* Input fills space */
+    border: 1px solid #000;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.9rem;
+}
+
+input:focus {
+    background-color: #fff9db;
+}
+
+.table-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.table-controls button {
+    flex: 1;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.table-controls button:hover {
+    background: #333;
+    color: #fff;
+}
 
 .nav-button {
     text-decoration: none;
@@ -123,4 +215,3 @@ body {
     top: 0;
     left: 0;
 }
-/*Migration between index & schedules end*/
