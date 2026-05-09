@@ -215,3 +215,66 @@ input:focus {
     top: 0;
     left: 0;
 }
+
+/* --- NEW SECTION: Media Adjustments Start --------------------------------------- */
+
+/* Tablet View (Screens smaller than 1024px) */
+@media (max-width: 1024px) {
+    .schedules-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+    
+    .sunday-container {
+        grid-column: span 2; /* Stretch Sunday across the bottom */
+    }
+}
+
+/* Media Adjustments */
+@media (max-width: 600px) {
+    body {
+        padding-top: 60px; 
+    }
+
+    .clock {
+        width: 250px;
+        height: 250px;
+    }
+
+    .number {
+        font-size: 18px; 
+    }
+
+    .date-label {
+        font-size: 1.5rem;
+    }
+
+    .date-display {
+        font-size: 1.2rem;
+    }
+
+    .schedules-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .sunday-container {
+        grid-column: span 1;
+    }
+
+    .day-table-container {
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .table-controls {
+        flex-direction: column; 
+    }
+    
+    .top-left-container {
+        position: relative;
+        justify-content: center;
+        padding: 10px 0 20px 0;
+    }
+}
+
+/* --- Media Adjustments End ------------------------------------------------------- */
